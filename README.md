@@ -9,7 +9,8 @@
 php artisan tinker
 DB::connection()-getPdo();  // PARA TESTAR ALTERAÇÕES SAI DO TINKER E RETORNA PARA ATUALIZAR O .env NA MEMÓRIA.
 
-###
+### https://youtu.be/_AZR-7rqOgQ  AULA 003
+
 
 
 
