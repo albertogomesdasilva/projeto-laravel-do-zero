@@ -11,7 +11,7 @@ class Product extends Model
 
     use SoftDeletes;
 
-    protected $fillable = ['name', 'description', 'exclusive'];
+    protected $fillable = ['category_id', 'name', 'description', 'exclusive'];
 
     protected $dates = ['deleted_at'];
 
