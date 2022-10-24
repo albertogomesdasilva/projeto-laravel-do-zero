@@ -11,6 +11,10 @@ DB::connection()-getPdo();  // PARA TESTAR ALTERAÇÕES SAI DO TINKER E RETORNA 
 
 ### https://youtu.be/_AZR-7rqOgQ  AULA 003
 
+C:\Users\alber\Desktop\Projeto-laravel-do-zero\projeto-laravel-do-zero\laravel-do-zero>php artisan make:model Contact -f -m -s
+
+
+
 
 
 
