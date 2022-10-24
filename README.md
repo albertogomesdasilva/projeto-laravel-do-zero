@@ -13,6 +13,135 @@ DB::connection()-getPdo();  // PARA TESTAR ALTERAÇÕES SAI DO TINKER E RETORNA 
 
 C:\Users\alber\Desktop\Projeto-laravel-do-zero\projeto-laravel-do-zero\laravel-do-zero>php artisan make:model Contact -f -m -s
 
+MODEL CRIADA PELO COMANDO
+<?php
+
+namespace App\Models;
+
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+
+class User extends Authenticatable
+{
+    use HasApiTokens, HasFactory, Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+}
+/******************
+UserController.php
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    public function show(User $user, Request $request){
+        $lista = $user;
+        return  'Usando o Controller UserController Parâmetro: -> ' .$lista;
+
+    }
+}
+
+
+/*********************************
+Rotas: Web Route
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController; 
+
+Route::get('user/{user}', [UserController::class, 'show'])->name('user');
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+// Route::get('/request', function(\Illuminate\Http\Request $request){
+//   //  dd($request);
+//     return 'x';
+// })->name('request');
+
+/**//************************//* */ 
+
+// Route::get('user/{user:email}', function(\App\Models\User $user){
+
+//Route::get('user/{user}', function(\App\Models\User $user){
+
+
+  
+  
+  //  ddd($user);
+  //  dd($user);
+//     var_dump($user);
+//     die();
+
+//     return $user;
+// })->name('user');
+
+
+/************************************************************* */
+
+// Route::prefix('usuarios')->group(function() {
+//     Route::get('', function(){
+//         return 'usuarios';
+//     })->name('usuarios');
+    
+//     Route::get('/{id}', function($id){
+//         return 'mostrar detalhes do usuário';
+//     })->name('usuario-detalhes');
+
+//     Route::get('/{id}/tags', function($id){
+//         return 'mostrar tags do usuário';
+//     })->name('usuario_tags');
+
+// });
+
+
+
+// Route::get('/users/{id?}', function ($id = null) {
+//     return $id;
+// });
 
 
 
